@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
 
 # git配置
-git clone https://github.com/markgandolfo/git-bash-completion.git
+
+git clone https://github.com/markgandolfo/git-bash-completion.git  ~/bin/git-bash-completion
 cp git-bash-completion.git/git-completion.bash ~/.git-completion.bash
 echo 'function git_branch {
   branch="`git branch 2>/dev/null | grep "^\*" | sed -e "s/^\*\ //"`"
@@ -11,10 +12,10 @@ echo 'function git_branch {
       fi
       echo " ($branch)"
   fi
-}' >> ~/.bashrc
+}' >> ~/bin/bashrc
 
-echo "export PS1='\u@\h \[\033[01;36m\]\W\[\033[01;32m\]$(git_branch)\[\033[00m\] \$ ' " >>  ~/.bashrc
-echo "source ~/.git-completion.bash'"  ~/.bashrc
+echo "export PS1='\u@\h \[\033[01;36m\]\W\[\033[01;32m\]$(git_branch)\[\033[00m\] \$ ' " >>  ~/bin/bashrc
+echo "source ~/.git-completion.bash'"  ~/bin/bashrc
 # git别名
 git config --global alias.co checkout
 git config --global alias.commit commit
